@@ -885,7 +885,7 @@ class TensorNetworkEncoding:
     def _validate_and_index(self) -> None:
         """
         Checks that all conections are valid, back and forth with matching dimension and only once.
-        Reserved dimensions are unused, and optinally all non-reserved are used.
+        Reserved dimensions are unused, and optionally all non-reserved are used.
         All dimensions are non-negative or -1 if unused.
         Dimensions are > 0, since interpretation depends on context.
         NOTE: Diagonal is unused. Setting -1 for consistency.
@@ -987,7 +987,7 @@ class TensorNetworkEncoding:
         n = len(V)
         E = np.full((n, n), -1, dtype=int)
         if n == 0:
-            raise ValueError("Empty MPO not suported")
+            raise ValueError("Empty MPO not supported")
 
         if lc is None:
             lc = np.eye(1, V[0].shape[0], dtype=complex)[0]
@@ -1466,7 +1466,7 @@ def QUBOPauliSumEncoding(Q: np.ndarray, c: complex = 0.0, tol: float = 1e-12):
             )
         return TensorNetworkEncoding([], np.zeros((0, 0), dtype=complex))
     terms, offset = QUBO_to_ising(Q, c, tol)
-    # Add cosntant term if not neglectable or would be empty otherwise
+    # Add constant term if not neglectable or would be empty otherwise
     if abs(offset) > tol or not len(terms):
         terms = [("I" * n, offset)] + terms
     t = len(terms)
@@ -1538,7 +1538,7 @@ def QUBONetworkEncoding(
     - TensorNetworkEncoding: exact (up to tol) network representing the QUBO; triangle(...) is
     provided as a local primitive to be used by greedy reduction heuristics.
 
-    NOTE: This is simply inferior to the PauliSum. The idea was to use the higher conenctivit,
+    NOTE: This is simply inferior to the PauliSum. The idea was to use the higher conectivity,
     but the overhead is way to high. An alternative would be to force a different structure
     instead of MPO. Maybe a tree or a k-local graph.
     """
