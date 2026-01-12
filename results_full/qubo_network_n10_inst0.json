@@ -1,0 +1,10 @@
+{
+  "family": "QUBO_network",
+  "params": {
+    "n": 10,
+    "inst": 0,
+    "encoder": "network"
+  },
+  "skipped_heavy": true,
+  "skip_reason": "SVD metric m^2+n^2=68719738880 exceeds threshold 335544320"
+}

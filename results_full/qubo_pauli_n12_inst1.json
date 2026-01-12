@@ -1,0 +1,10 @@
+{
+  "family": "QUBO_pauli",
+  "params": {
+    "n": 12,
+    "inst": 1,
+    "encoder": "pauli"
+  },
+  "skipped_heavy": true,
+  "skip_reason": "SVD metric m^2+n^2=1073741828 exceeds threshold 335544320"
+}
